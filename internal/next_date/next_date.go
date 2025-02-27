@@ -3,10 +3,11 @@ package nextdate
 import (
 	"errors"
 	"fmt"
-	"go_final_project/internal/constants"
 	"strconv"
 	"strings"
 	"time"
+
+	"task_scheduler/internal/constants"
 )
 
 func NextDate(now time.Time, date string, repeat string) (string, error) {

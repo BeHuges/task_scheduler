@@ -3,7 +3,7 @@ package repository
 import (
 	"database/sql"
 
-	"go_final_project/internal/task"
+	"task_scheduler/internal/task"
 )
 
 func (rep *Repository) GetTaskByID(id string) (task.Task, error) {

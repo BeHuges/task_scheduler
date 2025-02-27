@@ -2,7 +2,8 @@ package repository
 
 import (
 	"database/sql"
-	"go_final_project/internal/task"
+
+	"task_scheduler/internal/task"
 )
 
 func (r *Repository) GetTasks() ([]task.Task, error) {
