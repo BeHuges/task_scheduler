@@ -1,12 +1,13 @@
-module go_final_project
+module task_scheduler
 
-go 1.22.4
+go 1.23.3
 
 require (
 	github.com/go-chi/chi v1.5.5
 	github.com/jmoiron/sqlx v1.4.0
+	github.com/joho/godotenv v1.5.1
 	github.com/mattn/go-sqlite3 v1.14.24
-	github.com/stretchr/testify v1.9.0
+	github.com/stretchr/testify v1.10.0
 )
 
 require (

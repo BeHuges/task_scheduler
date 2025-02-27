@@ -1,16 +1,26 @@
 package main
 
 import (
-	"go_final_project/internal/database"
-	"go_final_project/internal/handler"
-	"go_final_project/internal/repository"
 	"log"
 	"net/http"
+	"os"
+
+	"task_scheduler/internal/database"
+	"task_scheduler/internal/handler"
+	"task_scheduler/internal/repository"
 
 	"github.com/go-chi/chi"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatalf("Error loading .env file")
+	}
+
+	port := os.Getenv("TODO_PORT")
 
 	db := database.New()
 
@@ -21,6 +31,7 @@ func main() {
 	handler := handler.New(repo)
 
 	r := chi.NewRouter()
+
 	r.Handle("/*", http.FileServer(http.Dir("./web")))
 	r.Get("/api/nextdate", handler.NextDate)
 	r.Post("/api/task", handler.AddTask)
@@ -30,7 +41,7 @@ func main() {
 	r.Post("/api/task/done", handler.TaskDone)
 	r.Delete("/api/task", handler.DeleteTask)
 
-	if err := http.ListenAndServe(":7540", r); err != nil {
+	if err := http.ListenAndServe(":"+port, r); err != nil {
 		log.Fatal(err)
 	}
 }

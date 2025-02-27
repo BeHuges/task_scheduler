@@ -1,10 +1,11 @@
 package database
 
 import (
-	"go_final_project/internal/repository"
 	"log"
 	"os"
 	"path/filepath"
+
+	"task_scheduler/internal/repository"
 )
 
 func Migration(rep *repository.Repository) {
@@ -12,7 +13,7 @@ func Migration(rep *repository.Repository) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	dbFile := filepath.Join(filepath.Dir(appPath), "scheduler.db")
+	dbFile := filepath.Join(filepath.Dir(appPath), os.Getenv("TODO_DBFILE"))
 	_, err = os.Stat(dbFile)
 
 	var install bool

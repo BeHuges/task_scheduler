@@ -1,10 +1,11 @@
 package handler
 
 import (
-	"go_final_project/internal/constants"
-	nextdate "go_final_project/internal/next_date"
 	"net/http"
 	"time"
+
+	"task_scheduler/internal/constants"
+	nextdate "task_scheduler/internal/next_date"
 )
 
 func (h *Handler) NextDate(w http.ResponseWriter, r *http.Request) {

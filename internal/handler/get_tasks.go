@@ -2,9 +2,10 @@ package handler
 
 import (
 	"encoding/json"
-	"go_final_project/internal/error"
-	"go_final_project/internal/task"
 	"net/http"
+
+	"task_scheduler/internal/error"
+	"task_scheduler/internal/task"
 )
 
 func (h *Handler) GetTasks(w http.ResponseWriter, r *http.Request) {

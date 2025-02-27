@@ -3,12 +3,13 @@ package handler
 import (
 	"encoding/json"
 	"fmt"
-	"go_final_project/internal/constants"
-	"go_final_project/internal/error"
-	nextdate "go_final_project/internal/next_date"
-	"go_final_project/internal/task"
 	"net/http"
 	"time"
+
+	"task_scheduler/internal/constants"
+	"task_scheduler/internal/error"
+	nextdate "task_scheduler/internal/next_date"
+	"task_scheduler/internal/task"
 )
 
 func (h *Handler) AddTask(w http.ResponseWriter, r *http.Request) {

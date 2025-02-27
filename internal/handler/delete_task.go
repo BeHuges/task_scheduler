@@ -1,9 +1,10 @@
 package handler
 
 import (
-	"go_final_project/internal/error"
 	"net/http"
 	"strconv"
+
+	"task_scheduler/internal/error"
 )
 
 func (h *Handler) DeleteTask(w http.ResponseWriter, r *http.Request) {

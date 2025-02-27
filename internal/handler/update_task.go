@@ -2,13 +2,14 @@ package handler
 
 import (
 	"encoding/json"
-	constants "go_final_project/internal/constants"
-	"go_final_project/internal/error"
-	nextdate "go_final_project/internal/next_date"
-	"go_final_project/internal/task"
 	"net/http"
 	"strconv"
 	"time"
+
+	constants "task_scheduler/internal/constants"
+	"task_scheduler/internal/error"
+	nextdate "task_scheduler/internal/next_date"
+	"task_scheduler/internal/task"
 )
 
 func (h *Handler) UpdateTask(w http.ResponseWriter, r *http.Request) {
@@ -50,15 +51,6 @@ func (h *Handler) UpdateTask(w http.ResponseWriter, r *http.Request) {
 				return
 			}
 			t.Date = nextDate
-		}
-	}
-
-	//Проверяем правило повторения
-	if t.Repeat != "" {
-		_, err := nextdate.NextDate(now, t.Date, t.Repeat)
-		if err != nil {
-			error.JsonResponse(w, "Неверный формат правила повторения")
-			return
 		}
 	}
 

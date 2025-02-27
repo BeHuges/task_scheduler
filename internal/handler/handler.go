@@ -1,6 +1,6 @@
 package handler
 
-import "go_final_project/internal/repository"
+import "task_scheduler/internal/repository"
 
 type Handler struct {
 	repo *repository.Repository
