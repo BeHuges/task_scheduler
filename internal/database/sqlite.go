@@ -2,6 +2,7 @@ package database
 
 import (
 	"database/sql"
+	"fmt"
 	"log"
 
 	_ "github.com/mattn/go-sqlite3"
@@ -16,6 +17,7 @@ func New() *sql.DB {
 	if err := db.Ping(); err != nil {
 		log.Fatal("ping db", err)
 	}
+	fmt.Println("Удачное подключение")
 
 	return db
 }
