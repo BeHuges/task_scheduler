@@ -7,6 +7,7 @@ import (
 
 	"task_scheduler/internal/database"
 	"task_scheduler/internal/handler"
+	"task_scheduler/internal/middleware"
 	"task_scheduler/internal/repository"
 
 	"github.com/go-chi/chi"
@@ -31,6 +32,8 @@ func main() {
 	handler := handler.New(repo)
 
 	r := chi.NewRouter()
+
+	r.Use(middleware.Logging)
 
 	r.Handle("/*", http.FileServer(http.Dir("./web")))
 	r.Get("/api/nextdate", handler.NextDate)
